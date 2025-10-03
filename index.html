@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Water Shop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f8ff;
+      color: #333;
+    }
+    header {
+      background: #0077cc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #005fa3;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+    section {
+      padding: 20px;
+    }
+    .product {
+      border: 1px solid #ddd;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 8px;
+      background: #fff;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+    }
+    input, textarea {
+      margin: 8px 0;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background: #25d366;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #1ebe57;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pure Water Shop</h1>
+    <p>Fresh, clean water delivered to your doorstep</p>
+  </header>
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#order">Order</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="product">
+      <h3>1 Litre Bottle</h3>
+      <p>₹20 each</p>
+    </div>
+    <div class="product">
+      <h3>20 Litre Can</h3>
+      <p>₹70 each</p>
+    </div>
+  </section>
+  <section id="order">
+    <h2>Place Your Order</h2>
+    <form onsubmit="sendWhatsApp(); return false;">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="text" id="phone" placeholder="Your Phone" required />
+      <textarea id="orderDetails" placeholder="Order Details (e.g. 2 cans)" required></textarea>
+      <button type="submit">Order on WhatsApp</button>
+    </form>
+  </section>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>📍 Address: Main Road, Your City</p>
+    <p>📞 Phone: +91 9812345678</p>
+  </section>
+
+  <script>
+    function sendWhatsApp() {
+      var name = document.getElementById("name").value;
+      var phone = document.getElementById("phone").value;
+      var order = document.getElementById("orderDetails").value;
+      var message = "Hello, my name is " + name +
+                    ". My phone number is " + phone +
+                    ". I would like to order: " + order;
+      var url = "https://wa.me/917866029593?text=" + encodeURIComponent(message);
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
